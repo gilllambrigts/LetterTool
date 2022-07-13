@@ -46,15 +46,12 @@ public class WebController {
 
     @GetMapping("/api/read")
     public String readAPI(@RequestParam("id") String inputId){
-        String result = "";
         if (inputId.isEmpty()){
-            result = "id parameter is empty.";
-            return result;
+            return "id parameter is empty.";
         }
 
         if(!inputId.matches("\\d*")){
-            result = "id parameter should be an integer";
-            return result;
+            return "id parameter should be an integer";
         }
 
         //Generate the output for all the words for a specific id.
@@ -71,7 +68,7 @@ public class WebController {
         for(int i = 0; i < resultWordList.size() - 1; i++){
             sj.add(resultWordList.get(i).getWord());
         }
-        result = sj.toString();
+        String result = sj.toString();
         return result;
     }
 
@@ -101,6 +98,7 @@ public class WebController {
     }
 
     private String generateSuccessString(long entryId){
-        return "Data has been processed and saved to a database. The ID of this entry is: " + String.valueOf(entryId);
+        String response = "Data has been processed and saved to a database. The ID of this entry is: " + String.valueOf(entryId) + "\n" + tool.returnGeneratedOutput();
+        return response;
     }
 }

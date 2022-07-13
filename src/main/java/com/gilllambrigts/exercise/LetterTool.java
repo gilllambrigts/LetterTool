@@ -142,6 +142,10 @@ public class LetterTool {
         return outputRow;
     }
 
+    public String returnGeneratedOutput(){
+        return generatedOutput;
+    }
+
     private void saveOutputRowToList(String row, String word){
         //Make sure to not add duplicates.
         if (!outputWordList.contains(word)) {

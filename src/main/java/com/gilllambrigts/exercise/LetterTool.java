@@ -19,7 +19,6 @@ public class LetterTool {
 
     private static String generatedOutput;
 
-
     public void init() {
         maxNumberOfCharacters = 0;
         extractedWordList = new ArrayList<String>();
@@ -27,7 +26,6 @@ public class LetterTool {
         extractedPartList = new ArrayList<String>();
         outputList = new ArrayList<String>();
         outputWordList = new ArrayList<String>();
-
     }
 
     public void importFromFile(String path) throws IOException {
@@ -152,7 +150,6 @@ public class LetterTool {
         } else {
         }
     }
-
 
     private boolean doesListContainWord(String inputWord) {
         if (extractedWordList.contains(inputWord)) {

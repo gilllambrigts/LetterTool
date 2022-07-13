@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 @Component
 public class WordController {
-
     @Autowired
     WordRepository repo;
 
@@ -24,9 +23,6 @@ public class WordController {
     }
 
     public ArrayList<wordModel> getAllForEntryId(long entryId){
-
         return repo.findByEntryId(entryId);
     }
-
-
 }

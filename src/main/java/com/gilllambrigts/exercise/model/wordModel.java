@@ -26,6 +26,4 @@ public class wordModel {
     public String getWord() {
         return word;
     }
-
-
 }

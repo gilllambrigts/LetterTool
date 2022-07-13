@@ -39,10 +39,8 @@ public class WebController {
         if (data.length() == 0) {
             return "Data is empty.";
         }
-
         tool.importFromString(data);
         tool.runLetterTool();
-
         return generateSuccessString(saveToDatabase(tool.getGeneratedArrayList()));
     }
 
@@ -98,9 +96,7 @@ public class WebController {
             wordModel model = new wordModel(entryModelId, inputList.get(i));
             partCombinationList.add(model);
         }
-
         wordController.saveAll(partCombinationList);
-
         return entryModelId;
     }
 

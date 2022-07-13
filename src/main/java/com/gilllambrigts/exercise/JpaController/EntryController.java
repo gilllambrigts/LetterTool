@@ -7,19 +7,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EntryController {
-
     @Autowired
     EntryRepository repo;
 
     public void save(EntryModel entryModel){
-
         repo.saveAndFlush(entryModel);
-
     }
 
     public void getId(){
-
     }
-
-
 }

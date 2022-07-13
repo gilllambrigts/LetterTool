@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.FileReader;
 
 public class LetterTool {
+
     private static int maxNumberOfCharacters;
     private static ArrayList<String> extractedPartList;
     private static ArrayList<String> extractedWordList;
@@ -18,6 +19,7 @@ public class LetterTool {
 
     private static String generatedOutput;
 
+
     public void init() {
         maxNumberOfCharacters = 0;
         extractedWordList = new ArrayList<String>();
@@ -25,6 +27,7 @@ public class LetterTool {
         extractedPartList = new ArrayList<String>();
         outputList = new ArrayList<String>();
         outputWordList = new ArrayList<String>();
+
     }
 
     public void importFromFile(String path) throws IOException {
@@ -43,6 +46,11 @@ public class LetterTool {
 
     public void importFromString(String inputString) {
         init();
+        //Perform a check whether the generatedList is empty.}
+        if (inputString.length() == 0) {
+            System.out.println("Empty input");
+        }
+
         importedStringList = new ArrayList<String>(Arrays.asList(inputString.split("\\s+")));
         System.out.println(importedStringList);
         System.out.println("Data read.");
@@ -53,7 +61,6 @@ public class LetterTool {
         //Perform a check whether the generatedList is empty.
         if (importedStringList.size() == 0) {
             System.out.println("Empty input");
-            return "Empty array";
         }
 
         //We will assume that the longest string in the list will be a word and that all words that need to be found are of that length.
@@ -62,7 +69,7 @@ public class LetterTool {
         extractCompleteWordsAndParts(importedStringList);
         combinePartsIntoWord();
         generateStringOutput();
-        return getGeneratedOutput();
+        return getGeneratedString();
     }
 
     private void extractCompleteWordsAndParts(ArrayList<String> importedStringList) {
@@ -90,6 +97,7 @@ public class LetterTool {
         return highestLength;
     }
 
+
     private void combinePartsIntoWord() {
         int extractedPartsListSize = extractedPartList.size();
 
@@ -106,11 +114,11 @@ public class LetterTool {
                 joinedWordReverse = secondPart + firstPart;
 
                 if (doesListContainWord(joinedWord)) {
-                    generateOutputList(firstPart, secondPart, joinedWord);
+                    saveOutputRowToList(generateOutputList(firstPart, secondPart, joinedWord), joinedWord);
                 }
 
                 if (doesListContainWord(joinedWordReverse)) {
-                    generateOutputList(secondPart, firstPart, joinedWordReverse);
+                    saveOutputRowToList(generateOutputList(secondPart, firstPart, joinedWordReverse), joinedWordReverse);
                 }
             }
         }
@@ -124,19 +132,27 @@ public class LetterTool {
         generatedOutput = sj.toString();
     }
 
-    public String getGeneratedOutput() {
+    public String getGeneratedString() {
         return generatedOutput;
     }
+    public ArrayList<String> getGeneratedArrayList(){
+        return outputList;
+    }
 
-    private void generateOutputList(String part1, String part2, String word) {
+    public String generateOutputList(String part1, String part2, String word) {
+        String outputRow = part1 + "+" + part2 + "=" + word + "\n";
+        return outputRow;
+    }
+
+    private void saveOutputRowToList(String row, String word){
         //Make sure to not add duplicates.
         if (!outputWordList.contains(word)) {
-            String outputRow = part1 + "+" + part2 + "=" + word + "\n";
-            outputList.add(outputRow);
+            outputList.add(row);
             outputWordList.add(word);
         } else {
         }
     }
+
 
     private boolean doesListContainWord(String inputWord) {
         if (extractedWordList.contains(inputWord)) {
@@ -144,5 +160,12 @@ public class LetterTool {
         } else {
             return false;
         }
+    }
+
+    private void saveEntryToDatabase(){
+    }
+
+    public void test(){
+        saveEntryToDatabase();
     }
 }

@@ -17,7 +17,8 @@ public class WordController {
     }
 
     public void saveAll(ArrayList<wordModel> wordModelList){
-        for(int i = 0; i < wordModelList.size() - 1; i++){
+        for(int i = 0; i < wordModelList.size(); i++){
+            System.out.println(wordModelList.get(i));
             save(wordModelList.get(i));
         }
     }

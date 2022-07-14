@@ -23,7 +23,7 @@ public class WebController {
     //Used for development. Reads strings from a file.
     @PostMapping("/api/file")
     public String fileProcess() throws IOException {
-        tool.importFromFile("C:\\Users\\PC\\Downloads\\exercise\\src\\main\\resources\\samples\\500.txt");
+        tool.importFromFile("src/main/resources/samples/500.txt");
         tool.runLetterTool();
         return generateSuccessString(saveToDatabase(tool.getGeneratedArrayList()));
     }
@@ -65,7 +65,7 @@ public class WebController {
         }
 
         //Convert the arrayList<wordModel> into a string.
-        for(int i = 0; i < resultWordList.size() - 1; i++){
+        for(int i = 0; i < resultWordList.size(); i++){
             sj.add(resultWordList.get(i).getWord());
         }
         String result = sj.toString();
@@ -89,16 +89,22 @@ public class WebController {
         //Create the correct models from the output list:
         ArrayList<wordModel> partCombinationList = new ArrayList<>();
         long entryModelId = entryModel.getId();
-        for(int i = 0; i < inputList.size() - 1; i++){
+
+        for(int i = 0; i < inputList.size(); i++){
             wordModel model = new wordModel(entryModelId, inputList.get(i));
             partCombinationList.add(model);
         }
+
         wordController.saveAll(partCombinationList);
         return entryModelId;
     }
 
     private String generateSuccessString(long entryId){
-        String response = "Data has been processed and saved to a database. The ID of this entry is: " + String.valueOf(entryId) + "\n" + tool.returnGeneratedOutput();
+        String response = "Data has been processed and saved to a database. The ID of this entry is: "
+                + String.valueOf(entryId)
+                + "\nYou can consult it in the future by making a GET request to localhost:8080/api/read?id=" + entryId
+                + "\n\nResult:\n"
+                + tool.getGeneratedString();
         return response;
     }
 }

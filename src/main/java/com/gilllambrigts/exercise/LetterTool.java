@@ -10,12 +10,12 @@ import java.io.FileReader;
 
 public class LetterTool {
 
-    private static int maxNumberOfCharacters;
-    private static ArrayList<String> extractedPartList;
-    private static ArrayList<String> extractedWordList;
-    private static ArrayList<String> importedStringList;
-    private static ArrayList<String> outputList;
-    private static ArrayList<String> outputWordList;
+    private int maxNumberOfCharacters;
+    private ArrayList<String> extractedPartList;
+    private ArrayList<String> extractedWordList;
+    private ArrayList<String> importedStringList;
+    private ArrayList<String> outputList;
+    private ArrayList<String> outputWordList;
 
     private static String generatedOutput;
 
@@ -36,22 +36,18 @@ public class LetterTool {
             while ((strCurrentLine = objReader.readLine()) != null) {
                 importedStringList.add(strCurrentLine);
             }
-            System.out.println("File read.");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
     public void importFromString(String inputString) {
         init();
         //Perform a check whether the generatedList is empty.}
         if (inputString.length() == 0) {
-            System.out.println("Empty input");
+            return;
         }
 
         importedStringList = new ArrayList<String>(Arrays.asList(inputString.split("\\s+")));
-        System.out.println(importedStringList);
-        System.out.println("Data read.");
     }
 
     public String runLetterTool() {
@@ -95,7 +91,6 @@ public class LetterTool {
         return highestLength;
     }
 
-
     private void combinePartsIntoWord() {
         int extractedPartsListSize = extractedPartList.size();
 
@@ -106,44 +101,36 @@ public class LetterTool {
 
         for (int i = 0; i < extractedPartsListSize; i++) {
             firstPart = extractedPartList.get(i);
-            for (int j = i + 1; j < extractedPartsListSize - i - 1; j++) {
+            for (int j = i + 1; j < extractedPartsListSize - 1; j++) {
                 secondPart = extractedPartList.get(j);
                 joinedWord = firstPart + secondPart;
                 joinedWordReverse = secondPart + firstPart;
 
-                if (doesListContainWord(joinedWord)) {
-                    saveOutputRowToList(generateOutputList(firstPart, secondPart, joinedWord), joinedWord);
-                }
+                if(!(firstPart.length() + secondPart.length() < maxNumberOfCharacters)){
+                    if (doesListContainWord(joinedWord)) {
+                        saveOutputRowToList(generateOutputList(firstPart, secondPart, joinedWord), joinedWord);
+                    }
 
-                if (doesListContainWord(joinedWordReverse)) {
-                    saveOutputRowToList(generateOutputList(secondPart, firstPart, joinedWordReverse), joinedWordReverse);
+                    if (doesListContainWord(joinedWordReverse)) {
+                        saveOutputRowToList(generateOutputList(secondPart, firstPart, joinedWordReverse), joinedWordReverse);
+                    }
                 }
             }
         }
+
     }
 
     private void generateStringOutput() {
         StringJoiner sj = new StringJoiner("");
-        for (int i = 0; i < outputList.size() - 1; i++) {
+        for (int i = 0; i < outputList.size(); i++) {
             sj.add(outputList.get(i));
         }
         generatedOutput = sj.toString();
     }
 
-    public String getGeneratedString() {
-        return generatedOutput;
-    }
-    public ArrayList<String> getGeneratedArrayList(){
-        return outputList;
-    }
-
-    public String generateOutputList(String part1, String part2, String word) {
+    private String generateOutputList(String part1, String part2, String word) {
         String outputRow = part1 + "+" + part2 + "=" + word + "\n";
         return outputRow;
-    }
-
-    public String returnGeneratedOutput(){
-        return generatedOutput;
     }
 
     private void saveOutputRowToList(String row, String word){
@@ -168,5 +155,13 @@ public class LetterTool {
 
     public void test(){
         saveEntryToDatabase();
+    }
+
+    public String getGeneratedString() {
+        return generatedOutput;
+    }
+    public ArrayList<String> getGeneratedArrayList(){
+
+        return outputList;
     }
 }

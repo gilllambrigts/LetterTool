@@ -9,8 +9,11 @@
 - Opslaan data in H2 database.
 - Klein API d.m.v. Spring Boot
 
+### Secties:
+[Verwerking](#verwerking)
+[Hoe te gebruiken](#howto)
 
-### **Verwerking**
+### **Verwerking** {#verwerking}
 #### **Verwerken van de lijst**
 
   - Bepalen van het langste woord in de ingevoerde lijst.
@@ -61,9 +64,9 @@ appe+al=appeal
   - Relatie: entry || - |< word
   
     
-## Hoe te gebruiken?
+## Hoe te gebruiken? {#howto}
 
-### Starten van de tool
+### Starten van de tool 
 De tool is ontwikkeld met Spring Boot en de uiteindelijk .jar draait in een Docker image. Het zou dus voldoende zijn het Docker image te downloaden en daarna te runnen. Van zodra deze online staat is de tool klaar om requests te ontvangen.
 
 ### Ingave

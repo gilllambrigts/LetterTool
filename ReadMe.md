@@ -1,17 +1,17 @@
 # One 16 Opgave
 
 
+### Secties:
+- [Omschrijving](#omschrijving)
+- [Handige links](#handige-links)
+- [Verwerking](#verwerking)
+- [Hoe te gebruiken](#hoe-te-gebruiken)
+
 
 ### Omschrijving
 - Verwerken van de opgave.
 - Opslaan data in H2 database.
 - Klein API d.m.v. Spring Boot
-
-
-### Secties:
-- [Handige links](#handige-links)
-- [Verwerking](#verwerking)
-- [Hoe te gebruiken](#hoe-te-gebruiken)
 
 ### Handige links:
 - Repository: https://github.com/gilllambrigts/LetterTool

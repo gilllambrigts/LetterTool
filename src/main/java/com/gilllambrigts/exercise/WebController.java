@@ -6,7 +6,6 @@ import com.gilllambrigts.exercise.model.EntryModel;
 import com.gilllambrigts.exercise.model.WordModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -36,7 +35,6 @@ public class WebController {
         }catch(IOException e){
             return ("File not found.");
         }
-
 
         tool.runLetterTool();
         return generateSuccessString(saveToDatabase(tool.getGeneratedArrayList()));

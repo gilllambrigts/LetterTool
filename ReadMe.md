@@ -1,20 +1,22 @@
 # One 16 Opgave
-### Handige links:
-- Repository: https://github.com/gilllambrigts/LetterTool
-- Docker image op Dockerhub: https://hub.docker.com/repository/docker/lambrigtsgill/one16lettertool. Getest op zowel Windows als op Mac OS. 
-- Moest het zo zijn dat het Docker image niet werkt, dan kunnen jullie de tool ook altijd bekijken op het adres: https://coral-app-mm5fz.ondigitalocean.app/
 
 
-### Onderdelen
+
+#### Onderdelen
 - Verwerken van de opgave.
 - Opslaan data in H2 database.
 - Klein API d.m.v. Spring Boot
 
 
 ### Secties:
+- [Handige links](#handige-links)
 - [Verwerking](#verwerking)
 - [Hoe te gebruiken](#hoe-te-gebruiken)
 
+### Handige links:
+- Repository: https://github.com/gilllambrigts/LetterTool
+- Docker image op Dockerhub: https://hub.docker.com/repository/docker/lambrigtsgill/one16lettertool. Getest op zowel Windows als op Mac OS. 
+- Moest het zo zijn dat het Docker image niet werkt, dan kunnen jullie de tool ook altijd bekijken op het adres: https://coral-app-mm5fz.ondigitalocean.app/
 
 ### Verwerking
 

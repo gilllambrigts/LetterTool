@@ -6,6 +6,7 @@ import com.gilllambrigts.exercise.model.EntryModel;
 import com.gilllambrigts.exercise.model.WordModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -25,8 +26,18 @@ public class WebController {
 
     //Used for development. Reads strings from a file.
     @PostMapping("/api/file")
-    public String fileProcess() throws IOException {
-        tool.importFromFile("src/main/resources/samples/500.txt");
+    public String fileProcess(@RequestParam(name = "name", defaultValue = "") String fileName){
+        if (fileName.length() == 0) {
+            return "File name is empty.";
+        }
+
+        try {
+            tool.importFromFile("src/main/resources/samples/" + fileName + ".txt");
+        }catch(IOException e){
+            return ("File not found.");
+        }
+
+
         tool.runLetterTool();
         return generateSuccessString(saveToDatabase(tool.getGeneratedArrayList()));
     }
@@ -49,7 +60,7 @@ public class WebController {
 
     //Method that is used to read any entries that have been saved previously.
     @GetMapping("/api/read")
-    public String readAPI(@RequestParam("id") String inputId){
+    public String readAPI(@RequestParam(name = "id", defaultValue = "") String inputId){
         if (inputId.isEmpty()){
             return "id parameter is empty.";
         }

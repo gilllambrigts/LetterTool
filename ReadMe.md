@@ -10,11 +10,11 @@
 - Klein API d.m.v. Spring Boot
 
 ### Secties:
-[Verwerking](#verwerking)
-[Hoe te gebruiken](#howto)
+[Verwerking](###-Verwerking)
+[Hoe te gebruiken](##-Hoe-te-gebruiken?)
 
-### **Verwerking** {#verwerking}
-#### **Verwerken van de lijst**
+###-Verwerking
+#### Verwerken van de lijst
 
   - Bepalen van het langste woord in de ingevoerde lijst.
   - De woorden van die lengte opslaan in een array en verwijderen uit de invoerlijst.
@@ -64,7 +64,7 @@ appe+al=appeal
   - Relatie: entry || - |< word
   
     
-## Hoe te gebruiken? {#howto}
+##-Hoe-te-gebruiken?
 
 ### Starten van de tool 
 De tool is ontwikkeld met Spring Boot en de uiteindelijk .jar draait in een Docker image. Het zou dus voldoende zijn het Docker image te downloaden en daarna te runnen. Van zodra deze online staat is de tool klaar om requests te ontvangen.

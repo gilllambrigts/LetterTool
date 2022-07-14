@@ -32,6 +32,7 @@ public class LetterTool {
     public void importFromFile(String path) throws  IOException {
         init();
         try {
+
             BufferedReader objReader = new BufferedReader(new FileReader(path));
             String strCurrentLine;
             while ((strCurrentLine = objReader.readLine()) != null) {

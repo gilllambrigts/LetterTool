@@ -2,7 +2,7 @@
 
 
 
-#### Onderdelen
+### Omschrijving
 - Verwerken van de opgave.
 - Opslaan data in H2 database.
 - Klein API d.m.v. Spring Boot

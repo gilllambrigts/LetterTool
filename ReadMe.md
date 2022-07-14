@@ -4,16 +4,20 @@
 - Docker image op Dockerhub: https://hub.docker.com/repository/docker/lambrigtsgill/one16lettertool. Getest op zowel Windows als op Mac OS. 
 - Moest het zo zijn dat het Docker image niet werkt, dan kunnen jullie de tool ook altijd bekijken op het adres: https://coral-app-mm5fz.ondigitalocean.app/
 
+
 ### Onderdelen
 - Verwerken van de opgave.
 - Opslaan data in H2 database.
 - Klein API d.m.v. Spring Boot
 
-### Secties:
-[Verwerking](###-Verwerking)
-[Hoe te gebruiken](##-Hoe-te-gebruiken?)
 
-###-Verwerking
+### Secties:
+- [Verwerking](#verwerking)
+- [Hoe te gebruiken](#hoe-te-gebruiken)
+
+
+### Verwerking
+
 #### Verwerken van de lijst
 
   - Bepalen van het langste woord in de ingevoerde lijst.
@@ -64,7 +68,7 @@ appe+al=appeal
   - Relatie: entry || - |< word
   
     
-##-Hoe-te-gebruiken?
+## Hoe-te-gebruiken?
 
 ### Starten van de tool 
 De tool is ontwikkeld met Spring Boot en de uiteindelijk .jar draait in een Docker image. Het zou dus voldoende zijn het Docker image te downloaden en daarna te runnen. Van zodra deze online staat is de tool klaar om requests te ontvangen.

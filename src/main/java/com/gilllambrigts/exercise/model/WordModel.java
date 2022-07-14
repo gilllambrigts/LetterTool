@@ -1,9 +1,10 @@
 package com.gilllambrigts.exercise.model;
 
 import javax.persistence.*;
+
 @Entity
 @Table(name = "word")
-public class wordModel {
+public class WordModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -12,10 +13,10 @@ public class wordModel {
     @Column(name = "word")
     private String word;
 
-    public wordModel() {
+    public WordModel() {
     }
 
-    public wordModel(long parEntryId, String parWord) {
+    public WordModel(long parEntryId, String parWord) {
         this.entryId = parEntryId;
         this.word = parWord;
     }

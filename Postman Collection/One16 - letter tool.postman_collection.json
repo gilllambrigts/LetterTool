@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "5dcfb8af-f70f-4ae6-8129-41f21d26d5bf",
+		"name": "One16 - letter tool",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "submitViaData",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "osine\r\nthem\r\nnarro\r\nes\r\nawler\r\nplex\r\nqu\r\nrrow\r\niny\r\nshabb\r\nrrow\r\nwell\r\nzambia\r\ninks\r\nnd\r\ns\r\nromie\r\nosen\r\nkiing\r\nmu\r\nsin\r\nappeal\r\nus\r\nand\r\ntryf\r\nd\r\nt\r\ntle\r\nh\r\nu\r\nfeede\r\nyo\r\na\r\nharley\r\ntaug\r\nn\r\nladde\r\nhower\r\nwin\r\nspo\r\nbe\r\nm\r\nscalb\r\nhannah\r\nsignal\r\noyers\r\npro\r\ninfirm\r\nplanet\r\nteamy\r\nrch\r\nbrooks\r\nsoc\r\nrtsy\r\nm\r\nnat\r\nannah\r\nond\r\ne\r\nutter\r\nringe\r\nllid\r\narc\r\ne\r\nalmo\r\nbishop\r\nsoccer\r\nle\r\ne\r\nbuck\r\nelid\r\nk\r\nha\r\nskii\r\ncer\r\ncoyo\r\nlet\r\nbu\r\nsc\r\nbl\r\nwicked\r\narchan\r\nssue\r\ney\r\ntrifl\r\nadder\r\nptse\r\ns\r\nl\r\nuum\r\nyonder\r\ne\r\nord\r\nacross\r\ne\r\nitric\r\ntigger\r\nfor\r\nple\r\nla\r\nimp\r\nogmo\r\nr\r\nibabs\r\ns\r\nco\r\ns\r\nbra\r\nll\r\nroc\r\nn\r\ny\r\nnup\r\nvu\r\nha\r\nuni\r\nwink\r\nqui\r\nmpede\r\nyous\r\nlight\r\nous\r\ntom\r\ndibab\r\nwool\r\npowd\r\ncolo\r\non\r\nder\r\nyonde\r\nr\r\nomie\r\npresto\r\nseudo\r\ncross\r\ndri\r\nsodiu\r\nnature\r\ne\r\nflame\r\ntromi\r\nexet\r\nbai\r\nhanna\r\no\r\nlap\r\non\r\nil\r\npaving\r\nhem\r\noku\r\ngrave\r\nan\r\nnar\r\npel\r\npa\r\nmug\r\nak\r\nin\r\nhande\r\nhinn\r\ncify\r\niable\r\nilted\r\nl\r\nb\r\ntingl\r\ne\r\ning\r\ndef\r\nsy\r\npeppe\r\nhop\r\norget\r\nwinkle\r\nbark\r\nuplex\r\ngen\r\nn\r\ni\r\nros\r\nvak\r\nclinic\r\nly\r\nm\r\nthroat\r\nwi\r\nr\r\nstie\r\nem\r\nbeetle\r\nrt\r\nfirm\r\nbies\r\nlaunc\r\nsh\r\nban\r\nsamp\r\nf\r\nt\r\nshabby\r\nmumba\r\nci\r\noves\r\npepper\r\nskiin\r\nsocc\r\nearch\r\nnge\r\nfee\r\na\r\nbabies\r\nwan\r\nabby\r\nresc\r\na\r\now\r\nught\r\nan\r\nic\r\nwrymu\r\npe\r\ng\r\nost\r\nr\r\narley\r\nves\r\nie\r\ner\r\ns\r\nco\r\ncolony\r\nnu\r\nstr\r\nconnie\r\nblu\r\nhee\r\njoyo\r\nc\r\nht\r\nl\r\nshop\r\ngnal\r\nsteam\r\naple\r\nmale\r\nop\r\nrooks\r\nore\r\nrow\r\noler\r\numbai\r\ne\r\non\r\ner\r\nelidir\r\nnatur\r\nc\r\nwretch\r\nleader\r\non\r\nn\r\nstap\r\nbucket\r\ncart\r\nfee\r\nste\r\nture\r\nupwar\r\nlau\r\nhunter\r\nambia\r\ndibabs\r\ns\r\nunwell\r\nustly\r\nr\r\nish\r\nder\r\nc\r\nes\r\nicked\r\nd\r\ntingly\r\nbr\r\ndrink\r\nh\r\ny\r\nm\r\ncked\r\ne\r\npeal\r\ntomat\r\nn\r\ngib\r\now\r\nson\r\nup\r\ny\r\nved\r\nm\r\nthir\r\ne\r\nunis\r\nlith\r\nhunt\r\noxford\r\nc\r\nner\r\np\r\nimpa\r\nduple\r\nex\r\ns\r\nent\r\nnitric\r\ne\r\nr\r\nappe\r\nley\r\nka\r\nprest\r\nde\r\nnner\r\np\r\nmanage\r\nocula\r\npallid\r\nal\r\np\r\nrinks\r\nosine\r\nthem\r\nnarro\r\nes\r\nawler\r\nplex\r\nqu\r\nrrow\r\niny\r\nshabb\r\nrrow\r\nwell\r\nzambia\r\ninks\r\nnd\r\ns\r\nromie\r\nosen\r\nkiing\r\nmu\r\nsin\r\nappeal\r\nus\r\nand\r\ntryf\r\nd\r\nt\r\ntle\r\nh\r\nu\r\nfeede\r\nyo\r\na\r\nharley\r\ntaug\r\nn\r\nladde\r\nhower\r\nwin\r\nspo\r\nbe\r\nm\r\nscalb\r\nhannah\r\nsignal\r\noyers\r\npro\r\ninfirm\r\nplanet\r\nteamy\r\nrch\r\nbrooks\r\nsoc\r\nrtsy\r\nm\r\nnat\r\nannah\r\nond\r\ne\r\nutter\r\nringe\r\nllid\r\narc\r\ne\r\nalmo\r\nbishop\r\nsoccer\r\nle\r\ne\r\nbuck\r\nelid\r\nk\r\nha\r\nskii\r\ncer\r\ncoyo\r\nlet\r\nbu\r\nsc\r\nbl\r\nwicked\r\narchan\r\nssue\r\ney\r\ntrifl\r\nadder\r\nptse\r\ns\r\nl\r\nuum\r\nyonder\r\ne\r\nord\r\nacross\r\ne\r\nitric\r\ntigger\r\nfor\r\nple\r\nla\r\nimp\r\nogmo\r\nr\r\nibabs\r\ns\r\nco\r\ns\r\nbra\r\nll\r\nroc\r\nn\r\ny\r\nnup\r\nvu\r\nha\r\nuni\r\nwink\r\nqui\r\nmpede\r\nyous\r\nlight\r\nous\r\ntom\r\ndibab\r\nwool\r\npowd\r\ncolo\r\non\r\nder\r\nyonde\r\nr\r\nomie\r\npresto\r\nseudo\r\ncross\r\ndri\r\nsodiu\r\nnature\r\ne\r\nflame\r\ntromi\r\nexet\r\nbai\r\nhanna\r\no\r\nlap\r\non\r\nil\r\npaving\r\nhem\r\noku\r\ngrave\r\nan\r\nnar\r\npel\r\npa\r\nmug\r\nak\r\nin\r\nhande\r\nhinn\r\ncify\r\niable\r\nilted\r\nl\r\nb\r\ntingl\r\ne\r\ning"
+				},
+				"url": {
+					"raw": "localhost:8080/api/data",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "submitViaFileOnServer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/file",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "executeTests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/test",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getResultsForEntryID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/read?id=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lastResult",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/read?id=4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

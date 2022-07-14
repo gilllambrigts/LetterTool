@@ -3,12 +3,15 @@ package com.gilllambrigts.exercise;
 import com.gilllambrigts.exercise.JpaController.EntryController;
 import com.gilllambrigts.exercise.JpaController.WordController;
 import com.gilllambrigts.exercise.model.EntryModel;
-import com.gilllambrigts.exercise.model.wordModel;
+import com.gilllambrigts.exercise.model.WordModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+
 import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.StringJoiner;
 
@@ -33,9 +36,9 @@ public class WebController {
         return tool.getGeneratedString();
     }
 
+    //Method that is used to submit data that is passed with the HTTP request.
     @PostMapping("/api/data")
-    public String dataProcess(@RequestBody String data) throws IOException {
-
+    public String dataProcess(@RequestBody String data)  {
         if (data.length() == 0) {
             return "Data is empty.";
         }
@@ -44,6 +47,7 @@ public class WebController {
         return generateSuccessString(saveToDatabase(tool.getGeneratedArrayList()));
     }
 
+    //Method that is used to read any entries that have been saved previously.
     @GetMapping("/api/read")
     public String readAPI(@RequestParam("id") String inputId){
         if (inputId.isEmpty()){
@@ -57,7 +61,7 @@ public class WebController {
         //Generate the output for all the words for a specific id.
         long entryId = Long.parseLong(inputId);
         StringJoiner sj = new StringJoiner("");
-        ArrayList<wordModel> resultWordList = wordController.getAllForEntryId(entryId);
+        ArrayList<WordModel> resultWordList = wordController.getAllForEntryId(entryId);
 
         //Check if the result has any values for the given id.
         if(resultWordList.size()==0){
@@ -65,33 +69,23 @@ public class WebController {
         }
 
         //Convert the arrayList<wordModel> into a string.
-        for(int i = 0; i < resultWordList.size(); i++){
-            sj.add(resultWordList.get(i).getWord());
+        for (WordModel wordModel : resultWordList) {
+            sj.add(wordModel.getWord());
         }
-        String result = sj.toString();
-        return result;
+        return sj.toString();
     }
 
-    //Used to execute some tests.
-    @GetMapping("/api/test")
-    public String test() {
-        tool.test();
-        return "";
-    }
-
-    private long saveToDatabase(ArrayList<String> inputList){
+    public long saveToDatabase(ArrayList<String> inputList){
         //Goes through the list of all results and adds those to the database.
-        //Returns the entry_id.
-        ArrayList<String> output = tool.getGeneratedArrayList();
         EntryModel entryModel = new EntryModel(LocalDate.now().toString());
         entryController.save(entryModel);
 
         //Create the correct models from the output list:
-        ArrayList<wordModel> partCombinationList = new ArrayList<>();
+        ArrayList<WordModel> partCombinationList = new ArrayList<>();
         long entryModelId = entryModel.getId();
 
-        for(int i = 0; i < inputList.size(); i++){
-            wordModel model = new wordModel(entryModelId, inputList.get(i));
+        for (String s : inputList) {
+            WordModel model = new WordModel(entryModelId, s);
             partCombinationList.add(model);
         }
 
@@ -100,11 +94,10 @@ public class WebController {
     }
 
     private String generateSuccessString(long entryId){
-        String response = "Data has been processed and saved to a database. The ID of this entry is: "
-                + String.valueOf(entryId)
-                + "\nYou can consult it in the future by making a GET request to localhost:8080/api/read?id=" + entryId
+        return "Data has been processed and saved to a database."
+                + "\nYou can consult it in the future by making a GET request to localhost:8080/api/read?id="
+                + entryId
                 + "\n\nResult:\n"
                 + tool.getGeneratedString();
-        return response;
     }
 }

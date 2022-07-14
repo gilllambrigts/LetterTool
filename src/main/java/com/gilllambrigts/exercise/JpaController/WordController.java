@@ -1,10 +1,9 @@
 package com.gilllambrigts.exercise.JpaController;
 
-import com.gilllambrigts.exercise.model.wordModel;
+import com.gilllambrigts.exercise.model.WordModel;
 import com.gilllambrigts.exercise.repository.WordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 
 @Component
@@ -12,18 +11,18 @@ public class WordController {
     @Autowired
     WordRepository repo;
 
-    public void save(wordModel model){
+    public void save(WordModel model){
         repo.save(model);
     }
 
-    public void saveAll(ArrayList<wordModel> wordModelList){
-        for(int i = 0; i < wordModelList.size(); i++){
-            System.out.println(wordModelList.get(i));
-            save(wordModelList.get(i));
+    public void saveAll(ArrayList<WordModel> wordModelList){
+        for (WordModel wordModel : wordModelList) {
+            System.out.println(wordModel);
+            save(wordModel);
         }
     }
 
-    public ArrayList<wordModel> getAllForEntryId(long entryId){
+    public ArrayList<WordModel> getAllForEntryId(long entryId){
         return repo.findByEntryId(entryId);
     }
 }

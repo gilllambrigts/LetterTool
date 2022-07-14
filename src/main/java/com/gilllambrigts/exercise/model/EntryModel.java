@@ -1,6 +1,7 @@
 package com.gilllambrigts.exercise.model;
 
 import javax.persistence.*;
+
 @Entity
 @Table(name = "entry")
 public class EntryModel {

@@ -1,5 +1,6 @@
 package com.gilllambrigts.exercise;
 
+import java.io.FileNotFoundException;
 import java.util.StringJoiner;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,24 +22,27 @@ public class LetterTool {
 
     public void init() {
         maxNumberOfCharacters = 0;
-        extractedWordList = new ArrayList<String>();
-        importedStringList = new ArrayList<String>();
-        extractedPartList = new ArrayList<String>();
-        outputList = new ArrayList<String>();
-        outputWordList = new ArrayList<String>();
+        extractedWordList = new ArrayList<>();
+        importedStringList = new ArrayList<>();
+        extractedPartList = new ArrayList<>();
+        outputList = new ArrayList<>();
+        outputWordList = new ArrayList<>();
     }
 
-    public void importFromFile(String path) throws IOException {
+    public void importFromFile(String path) throws  IOException {
         init();
         try {
             BufferedReader objReader = new BufferedReader(new FileReader(path));
-            String strCurrentLine = "";
+            String strCurrentLine;
             while ((strCurrentLine = objReader.readLine()) != null) {
                 importedStringList.add(strCurrentLine);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch(IOException eIO){
+            eIO.printStackTrace();
+            throw eIO;
         }
+
+
     }
     public void importFromString(String inputString) {
         init();
@@ -47,10 +51,10 @@ public class LetterTool {
             return;
         }
 
-        importedStringList = new ArrayList<String>(Arrays.asList(inputString.split("\\s+")));
+        importedStringList = new ArrayList<>(Arrays.asList(inputString.split("\\s+")));
     }
 
-    public String runLetterTool() {
+    public void runLetterTool() {
 
         //Perform a check whether the generatedList is empty.
         if (importedStringList.size() == 0) {
@@ -63,27 +67,25 @@ public class LetterTool {
         extractCompleteWordsAndParts(importedStringList);
         combinePartsIntoWord();
         generateStringOutput();
-        return getGeneratedString();
     }
 
     private void extractCompleteWordsAndParts(ArrayList<String> importedStringList) {
 
-        for (int i = 0; i < importedStringList.size(); i++) {
+        for (String s : importedStringList) {
             //Count the characters in the string item
-            if (importedStringList.get(i).length() == maxNumberOfCharacters) {
-                extractedWordList.add(importedStringList.get(i));
+            if (s.length() == maxNumberOfCharacters) {
+                extractedWordList.add(s);
             } else {
-                extractedPartList.add(importedStringList.get(i));
+                extractedPartList.add(s);
             }
         }
-        return;
     }
 
     //Useful when you want to expand the tool to also take higher lengths in consideration.
     private int findHighestCharacterCount(ArrayList<String> inputStringList) {
         int highestLength = inputStringList.get(0).length();
-        for (int i = 0; i < inputStringList.size(); i++) {
-            int currentLength = inputStringList.get(i).length();
+        for (String s : inputStringList) {
+            int currentLength = s.length();
             if (currentLength > highestLength) {
                 highestLength = currentLength;
             }
@@ -94,10 +96,10 @@ public class LetterTool {
     private void combinePartsIntoWord() {
         int extractedPartsListSize = extractedPartList.size();
 
-        String firstPart = "";
-        String secondPart = "";
-        String joinedWord = "";
-        String joinedWordReverse = "";
+        String firstPart;
+        String secondPart;
+        String joinedWord;
+        String joinedWordReverse;
 
         for (int i = 0; i < extractedPartsListSize; i++) {
             firstPart = extractedPartList.get(i);
@@ -122,15 +124,14 @@ public class LetterTool {
 
     private void generateStringOutput() {
         StringJoiner sj = new StringJoiner("");
-        for (int i = 0; i < outputList.size(); i++) {
-            sj.add(outputList.get(i));
+        for (String s : outputList) {
+            sj.add(s);
         }
         generatedOutput = sj.toString();
     }
 
     private String generateOutputList(String part1, String part2, String word) {
-        String outputRow = part1 + "+" + part2 + "=" + word + "\n";
-        return outputRow;
+        return part1 + "+" + part2 + "=" + word + "\n";
     }
 
     private void saveOutputRowToList(String row, String word){
@@ -138,16 +139,11 @@ public class LetterTool {
         if (!outputWordList.contains(word)) {
             outputList.add(row);
             outputWordList.add(word);
-        } else {
         }
     }
 
     private boolean doesListContainWord(String inputWord) {
-        if (extractedWordList.contains(inputWord)) {
-            return true;
-        } else {
-            return false;
-        }
+        return extractedWordList.contains(inputWord);
     }
 
     private void saveEntryToDatabase(){
@@ -161,7 +157,14 @@ public class LetterTool {
         return generatedOutput;
     }
     public ArrayList<String> getGeneratedArrayList(){
-
         return outputList;
+    }
+
+    public ArrayList<String> getImportedStringList(){
+        return importedStringList;
+    }
+
+    public int getLongestWord(){
+        return maxNumberOfCharacters;
     }
 }
